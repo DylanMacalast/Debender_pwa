@@ -1,11 +1,16 @@
 ul{
-  background-color: lightblue;
+  background-color: grey;
   width: 100%;
   justify-content: space-between;
 }
 .nav-item{
   text-decoration: none;
   a{
-    color: black;
+    color: white;
+    text-align: center;
+  }
+  .title__nav--link{
+    letter-spacing: 3px;
+    font-size: 24px;
   }
 }
