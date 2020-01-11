@@ -1,5 +1,5 @@
 // This is the Read Model
-export class Read {
+export class ReadRandom {
 
     constructor() {
         // construct

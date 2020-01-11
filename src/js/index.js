@@ -1,5 +1,6 @@
-import { Single } from "./models/Single";
-import { Read } from "./models/Read";
+import { Single } from "./models/ReadSingle";
+import { ReadRandom } from "./models/ReadRandom";
+import * as ReadRandomView from './views/readRandomView'; // importing everything from readRandomView
 import "./../main.scss";
 
 
@@ -9,21 +10,27 @@ const state = {};
 
 
 
-// ============= Single Item Controller ================
-// here we want to render a single items data into html if that item is clicked
+// ============= Random Item Item Controller ================
+// here we want to render a random items data into html if spinner is clicked
 
-const test = new Single();
-//test.getSingleItem();
+const controlReadRandom = async () => {
 
-state.test2 = new Read();
+    state.readRandom = new ReadRandom();
 
-const controlRead = async () => {
     try {
-        await state.test2.getRandomItem();
-        console.log(state.test2.result);
+        await state.readRandom.getRandomItem();
+        const randomRes = state.readRandom.result;
+        console.log(randomRes);
+        for (let i = 0; i < randomRes.length; i++) {
+            // for each item in json object run renderSeshItem
+            ReadRandomView.renderSeshItems(randomRes[i]);
+        }
     } catch(err) {
         alert('bad');
     }
 }
 
-controlRead();
+
+
+// calling all functions here for now
+controlReadRandom();
