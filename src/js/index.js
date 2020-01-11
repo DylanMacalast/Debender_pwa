@@ -1,12 +1,29 @@
-// importing the run function so we can call it here
-// importing more then one thing from same file
-import { run, num } from "./models/Read";
+import { Single } from "./models/Single";
+import { Read } from "./models/Read";
 import "./../main.scss";
-import { TestClass } from "./views/readView"; 
 
-const testClass = new TestClass();
-// running init function for 'app'
-run(testClass);
-//testing babel loader working
-console.log(`I imported ${num} from another file!`);
 
+
+// state -> global object to store all of our apps data in within the controller
+const state = {};
+
+
+
+// ============= Single Item Controller ================
+// here we want to render a single items data into html if that item is clicked
+
+const test = new Single();
+//test.getSingleItem();
+
+state.test2 = new Read();
+
+const controlRead = async () => {
+    try {
+        await state.test2.getRandomItem();
+        console.log(state.test2.result);
+    } catch(err) {
+        alert('bad');
+    }
+}
+
+controlRead();
