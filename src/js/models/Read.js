@@ -6,4 +6,3 @@ export const run = (testClass) => {
 
 
 export const num = 23424;
-

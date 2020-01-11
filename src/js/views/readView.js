@@ -1,3 +1,4 @@
+
 export class TestClass {
     constructor() {
         // constructor method stuff
@@ -9,4 +10,3 @@ export class TestClass {
         console.log(`hello ${name} from TestClass`);
     }
 }
-
