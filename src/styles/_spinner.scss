@@ -1,7 +1,7 @@
 .spinner__div{
   display: flex;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 50px;
 
   .spinner__btn{
     border-radius: 50%;
@@ -11,5 +11,10 @@
     background-color: $secondary-color;
     color: white;
     font-size: 18px;
+    
   }
+}
+
+.spinner__btn:focus{
+  outline: none;
 }

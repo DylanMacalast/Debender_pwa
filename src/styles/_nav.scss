@@ -1,20 +1,24 @@
 
 ul{
   background-color: grey;
+  height: 40px;
   width: 100%;
   justify-content: space-between;
 }
 .nav-item{
   text-decoration: none;
-  a{
+  .nav-link_create{
     color: white;
     text-align: center;
     letter-spacing: 3px;
-    font-size: 24px;
-
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    padding: 0px 3px;
+    text-decoration: none;
   }
-  .title__nav--link{
-    letter-spacing: 3px;
-    font-size: 24px;
+  i{
+    color: white;
+    font-size: 25px;
   }
+  
 }
