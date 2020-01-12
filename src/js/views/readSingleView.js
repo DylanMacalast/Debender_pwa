@@ -1,28 +1,18 @@
 import { elements } from './base';
 
+// render a single item onto the page
 export const renderSingleItem = (readSingle) => {
     const markup = `
-       <p class="single__p--message">You Must Now All <strong>${readSingle.Title}</strong>!</p> 
+       <p class="single__p--message">You Must Now All <strong>${readSingle.title}</strong>!</p> 
        <h1>Have Fun</h1>
     `;
+    elements.singleItem.insertAdjacentHTML('afterbegin', markup);
 }
 
-
-// TODO: figure out a better way of doing this!
-export const getSeshItemId = () => {
-
-    elements.body.addEventListener('click',  function(event)  {
-        //event.target is clicked element
-       if (!event.target) {return; } 
-
-        if (event.target.matches('.items__title')) {
-            let id = event.target.id;
-            id = id.replace('item-', '');
-            id = parseInt(id);
-            return id;
-        } 
-        
-
-    });
-
+// gets the id from target element that was clicked
+export const getItemId = (eventId) => {
+    let id = eventId;
+    id = id.replace('item-', '');
+    id = parseInt(id);
+    return id;
 }

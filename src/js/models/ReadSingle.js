@@ -17,11 +17,8 @@ export class ReadSingle{
             //using this.id as the id we are getting from the api call
             let response = await fetch(`https://debender-api.herokuapp.com/api/product/read_one.php?id=${this.id}`);
             let data = await response.json()
-            console.log(data);
 
-            // setting the item data to propertys of this class 
             this.title = data.Title;
-            console.log(this.title);
 
         } catch (error) {
             console.log(error);

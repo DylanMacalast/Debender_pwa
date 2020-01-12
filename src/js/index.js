@@ -22,7 +22,6 @@ const controlReadRandom = async () => {
     try {
         await state.readRandom.getRandomItem();
         const randomRes = state.readRandom.result;
-        console.log(randomRes);
         for (let i = 0; i < randomRes.length; i++) {
             // for each item in json object run renderSeshItem
             ReadRandomView.renderSeshItems(randomRes[i]);
@@ -46,18 +45,36 @@ elements.spinnerButton.addEventListener("click", e => {
 // ========================== Single Item Controller ============
 const controlReadSingle = () => {
 
-    //TODO: figure out how to get id out of the clicked element so 
-    //you can pass it into read single model where it can then make the api call
+    elements.body.addEventListener('click',  function(event)  {
+        //event.target is clicked element
+       if (!event.target) {return; } 
 
-    const id = ReadSingleView.getSeshItemId();
-    console.log(id);
+        if (event.target.matches('.items__title')) {
+            state.SingleItemId = ReadSingleView.getItemId(event.target.id);
+        } 
 
+        // if there is an id found ...
+        if(state.SingleItemId) {
 
-    //const id = elements.seshItemTitle;
-    //console.log(id);
-//state.readSingle = new ReadSingle();
-    
+            // instanciate the ReadSingle object with id as param
+            state.readSingle = new ReadSingle(state.SingleItemId)
+            callGetSingleAndRenderSingle();
+        }
+
+    });
+
 }
+
+// function to be called on click that gets the single items data and that renders its data in display
+const callGetSingleAndRenderSingle = async () => {
+     try {
+         await state.readSingle.getSingleItem();
+         ReadSingleView.renderSingleItem(state.readSingle);
+    } catch(err){
+     console.log('no');
+    }
+ }
+
 controlReadSingle();
 
 
