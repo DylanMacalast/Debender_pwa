@@ -1,5 +1,6 @@
 import { ReadSingle } from "./models/ReadSingle";
 import { ReadRandom } from "./models/ReadRandom";
+import { CreateItem} from "./models/CreateItem";
 import * as ReadRandomView from './views/readRandomView'; // importing everything from readRandomView
 import * as ReadSingleView from './views/readSingleView';
 import * as CreateView from './views/createView';
@@ -82,18 +83,24 @@ controlReadSingle();
 
 
 
-
-
-
-
-
-
-
-
 // ============================= Create Item Controller ======================
 
 
 CreateView.openPopup();
+// when submiting form run 
+const form = elements.form;
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const inputValue = elements.input.value;
+    state.createItem = new CreateItem(inputValue);
+    state.createItem.postData();
+
+    //TODO: render message here
+});
+
+
+
+
 
 
 

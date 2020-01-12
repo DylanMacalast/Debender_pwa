@@ -6,5 +6,7 @@ export const elements = {
     seshItemTitle: document.querySelector('.items__title'),
     body: document.querySelector('body'),
     createButton: document.querySelector('.nav-link_create'),
-    popupBox: document.querySelector('.popup')
+    popupBox: document.querySelector('.popup'),
+    form: document.querySelector('.popup__form'),
+    input: document.querySelector(".popup__input")
 }
