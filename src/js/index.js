@@ -2,6 +2,7 @@ import { ReadSingle } from "./models/ReadSingle";
 import { ReadRandom } from "./models/ReadRandom";
 import * as ReadRandomView from './views/readRandomView'; // importing everything from readRandomView
 import * as ReadSingleView from './views/readSingleView';
+import * as CreateView from './views/createView';
 import "./../main.scss";
 import { elements } from './views/base';
 
@@ -61,6 +62,7 @@ const controlReadSingle = () => {
             callGetSingleAndRenderSingle();
         }
 
+
     });
 
 }
@@ -78,6 +80,20 @@ const callGetSingleAndRenderSingle = async () => {
 controlReadSingle();
 
 
+
+
+
+
+
+
+
+
+
+
+// ============================= Create Item Controller ======================
+
+
+CreateView.openPopup();
 
 
 

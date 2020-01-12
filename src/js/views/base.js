@@ -4,5 +4,7 @@ export const elements = {
     singleItem: document.querySelector('.single__div'),
     spinnerButton: document.querySelector('.spinner__btn'),
     seshItemTitle: document.querySelector('.items__title'),
-    body: document.querySelector('body')
+    body: document.querySelector('body'),
+    createButton: document.querySelector('.nav-link_create'),
+    popupBox: document.querySelector('.popup')
 }

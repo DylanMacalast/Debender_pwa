@@ -25,6 +25,7 @@ div.popup{
    
 
   }
+  
 }
 .popup__submit{
   margin-top: 15px;
@@ -53,4 +54,11 @@ div.popup{
 input[type="text"] {
   font-size: 12px;
 }
+
+// TODO: CALLUM ...
+// will you put this in a better place and make it so that it works properly without using important
+.popup__div--hide {
+    display: none !important;
+}
+
 
