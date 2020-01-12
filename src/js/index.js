@@ -1,7 +1,9 @@
-import { Single } from "./models/ReadSingle";
+import { ReadSingle } from "./models/ReadSingle";
 import { ReadRandom } from "./models/ReadRandom";
 import * as ReadRandomView from './views/readRandomView'; // importing everything from readRandomView
+import * as ReadSingleView from './views/readSingleView';
 import "./../main.scss";
+import { elements } from './views/base';
 
 
 
@@ -31,6 +33,35 @@ const controlReadRandom = async () => {
 }
 
 
+// on spinner click call controlReadRandom which will run after a certain amount of time
+// This will init the whole app pretty much
+elements.spinnerButton.addEventListener("click", e => {
+    setTimeout(
+    function() {
+        controlReadRandom();
+    }, 500); 
+});
 
-// calling all functions here for now
-controlReadRandom();
+
+// ========================== Single Item Controller ============
+const controlReadSingle = () => {
+
+    //TODO: figure out how to get id out of the clicked element so 
+    //you can pass it into read single model where it can then make the api call
+
+    const id = ReadSingleView.getSeshItemId();
+    console.log(id);
+
+
+    //const id = elements.seshItemTitle;
+    //console.log(id);
+//state.readSingle = new ReadSingle();
+    
+}
+controlReadSingle();
+
+
+
+
+
+

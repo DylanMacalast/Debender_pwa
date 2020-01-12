@@ -1,12 +1,12 @@
 //  ============ This is the Single item Model ============= 
 // it will read a single item depending on the id given 
-export class Single{
+export class ReadSingle{
 
     constructor(id) {
         // each sesh item is identified by and id.
         // So when we create an instance of this class we will pass in the id 
         // this.id = id; should be this
-        this.id = 4;
+        this.id = id;
     }
 
 
