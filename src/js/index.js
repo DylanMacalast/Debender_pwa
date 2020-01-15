@@ -86,21 +86,51 @@ controlReadSingle();
 // ============================= Create Item Controller ======================
 
 
+// opens the popup box when create button is clicked
+//
 CreateView.openPopup();
+
+
 // when submiting form run 
 const form = elements.form;
 form.addEventListener('submit', function(e) {
     e.preventDefault();
+    state.createNewSeshItemFromInput();
+    });
+
+
+/** 
+ * function that waits for data to be inputed into db
+ * It then renders a message
+ * It then gets rid of popup box and message
+**/
+state.createNewSeshItemFromInput = async () =>{
     const inputValue = elements.input.value;
     state.createItem = new CreateItem(inputValue);
-    state.createItem.postData();
+    try{
+        //create item
+    await state.createItem.postData();
 
-    //TODO: render message here
-});
+    //render message here
+    CreateView.renderMessage(); 
 
+    // get rid of pop up box
+        // change elements back to orignal state
+    setTimeout(function() {
+        const renderedMessage = document.querySelector(".popup__p--message");
+        console.log(renderedMessage);
+        renderedMessage.parentNode.removeChild(renderedMessage);
+        elements.input.style.display = "block";
+        elements.submitButton.style.display = "block";
+        elements.popupText.style.display = "block";
+       elements.popupBox.classList.toggle('popup__div--hide'); 
+    }, 1500);
 
+    }catch(err){
+        console.log(err);
+    }
 
-
+}
 
 
 
